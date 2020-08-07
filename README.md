@@ -1,4 +1,4 @@
-#Javascript-Calculator
+# Javascript-Calculator
 
-Basic calculator made using javascript
+Basic calculator made using Javascript
 
