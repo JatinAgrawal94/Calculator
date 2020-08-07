@@ -1,1 +1,1 @@
-Javascrip application
+<em>Javascript Tip Calculator</em>
