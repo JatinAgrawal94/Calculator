@@ -72,6 +72,7 @@ equal.addEventListener('click',()=>{
      console.log(bet)
      updateScreen(bet)
      final=[]
+     result=[]
 })
 
 
