@@ -73,6 +73,7 @@ equal.addEventListener('click',()=>{
      updateScreen(bet)
      final=[]
      result=[]
+    currentInput=0
 })
 
 
