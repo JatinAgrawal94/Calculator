@@ -1,7 +1,6 @@
 
 var number=document.querySelectorAll('.number')
 var operator=document.querySelectorAll('.operator')
-var per=document.querySelector('.percentage')
 var clear=document.querySelector('.all-clear')
 var decimal=document.querySelector('.decimal')
 var equal=document.querySelector('.equal-sign')
@@ -11,10 +10,6 @@ var currentInput=0,inputNumber;//currentinput is the expression whose result is 
 var result=[]; //the input box array
 scr.value=""
 
-
-// setInterval(()=>{
-//      console.log(currentInput)
-// },1000)
 
 
 //declaring event listeners for numbers
