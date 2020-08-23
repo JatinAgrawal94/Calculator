@@ -28,7 +28,7 @@ button{
      flex-direction: row;
 }
 
-.operator,.decimal,.equal-sign,{
+.operator,.decimal,.equal-sign{
      background-color: orange;
 }
 .operator:hover , .decimal:hover, .equal-sign:hover{
@@ -41,8 +41,12 @@ button{
 .number:hover{
      background-color: lightblue;
 }
-.all-clear,.zero-btn{
+.zero-btn{
      width:50%;
+     background-color: red;
+}
+.all-clear{
+     width:75%;
      background-color: red;
 }
 .zero-btn:hover{
