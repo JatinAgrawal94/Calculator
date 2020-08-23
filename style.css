@@ -28,10 +28,10 @@ button{
      flex-direction: row;
 }
 
-.operator,.decimal,.equal-sign,.percentage{
+.operator,.decimal,.equal-sign,{
      background-color: orange;
 }
-.operator:hover , .decimal:hover, .equal-sign:hover , .percentage:hover{
+.operator:hover , .decimal:hover, .equal-sign:hover{
      background-color: yellow;
 }
 .number{
