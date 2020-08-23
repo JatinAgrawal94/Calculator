@@ -6,8 +6,10 @@ var decimal=document.querySelector('.decimal')
 var equal=document.querySelector('.equal-sign')
 var scr=document.querySelector('.screen')
 var bet=0;
-var currentInput=0,inputNumber;//currentinput is the expression whose result is to be found
-var result=[]; //the input box array
+var temp="";
+var final=[]
+var currentInput=0,inputNumber //currentinput is the expression whose resultString is to be found
+var resultString=[];  //the input box array
 scr.value=""
 
 
@@ -24,11 +26,11 @@ scr.value=""
 function inputNumber(number){ //numbers currently present in the input box
      if(currentInput=='0'){
           currentInput=number
-          result.push(number)
+          resultString.push(number)
      }
      else{
           currentInput+=number
-          result.push(number)
+          resultString.push(number)
      }
 }
 // declaring event listeners for operator
@@ -43,7 +45,7 @@ clear.addEventListener('click',()=>{
      updateScreen(0)
      currentInput=""
      final=[]
-     result=[]
+     resultString=[]
      temp=""
 })
 
@@ -62,34 +64,30 @@ decimal.addEventListener('click',()=>{
 })
 
 equal.addEventListener('click',()=>{
-     finalResult()
+     finalresultString()
      calculate()
      console.log(bet)
      updateScreen(bet)
      final=[]
-     result=[]
+     resultString=[]
      currentInput="0" 
      bet=0
 })
 
 
-
-var temp="";
-var final=[]
-
-function finalResult(){
+function finalresultString(){
      final=[]
      temp=""
-     for(var k=0; k<result.length; k++)
+     for(var k=0; k<resultString.length; k++)
      {
-          if(result[k]=='+' || result[k]=='-' || result[k]=='*' || result[k]=='/')
+          if(resultString[k]=='+' || resultString[k]=='-' || resultString[k]=='*' || resultString[k]=='/')
           {
              final.push(parseFloat(temp))
-             final.push(result[k])
+             final.push(resultString[k])
              temp=""
           }
           else{
-                 temp=temp+result[k];
+                 temp=temp+resultString[k];
           }
      }
      final.push(parseFloat(temp))
@@ -110,12 +108,10 @@ function calculate(){
 
 }
 
-
-
-function getIt(opr,tempor,num){
-     if(isNaN(tempor))
+function getIt(opr,parameter,num){
+     if(isNaN(parameter))
      {
-          tempor=0
+          parameter=0
      }
      if(isNaN(num))
      {
@@ -123,14 +119,14 @@ function getIt(opr,tempor,num){
      }
      switch(opr)
      {
-        case '+':tempor+=num
+        case '+':parameter+=num
                   break;
-        case '-':tempor-=num
+        case '-':parameter-=num
                  break;
-        case '*':tempor*=num
+        case '*':parameter*=num
                  break;
-        case '/':tempor=tempor/num;
+        case '/':parameter=parameter/num;
                  break;
      }
-     bet=tempor;
+     bet=parameter;
 }
