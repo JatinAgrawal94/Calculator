@@ -8,9 +8,9 @@ var scr=document.querySelector('.screen')
 var bet=0;
 var temp="";
 var final=[]
-var currentInput=0,inputNumber //currentinput is the expression whose resultString is to be found
+var currentInput="0",inputNumber //currentinput is the expression whose resultString is to be found
 var resultString=[];  //the input box array
-scr.value=""
+scr.value="0"
 
 
 
@@ -23,7 +23,8 @@ scr.value=""
       })
 }
 
-function inputNumber(number){ //numbers currently present in the input box
+function inputNumber(number){ 
+
      if(currentInput=='0'){
           currentInput=number
           resultString.push(number)
@@ -49,24 +50,20 @@ clear.addEventListener('click',()=>{
      temp=""
 })
 
-function updateScreen(text){
+function updateScreen(text=currentInput){
      scr.value=text
 }
 
-function updatescreen()
-{
-     scr.value=currentInput
-}
 
 decimal.addEventListener('click',()=>{
      inputNumber('.')
-     updatescreen('.')
+     updatescreen()
 })
 
 equal.addEventListener('click',()=>{
+     
      finalresultString()
      calculate()
-     console.log(bet)
      updateScreen(bet)
      final=[]
      resultString=[]
@@ -76,6 +73,9 @@ equal.addEventListener('click',()=>{
 
 
 function finalresultString(){
+     if(currentInput=='0'){
+          return;
+     }
      final=[]
      temp=""
      for(var k=0; k<resultString.length; k++)
@@ -95,17 +95,17 @@ function finalresultString(){
 
 
 function calculate(){
+     if(final.length==0){
+          return
+     }
      bet=final[0];
-
      for(var k=0;k<final.length;k++)
      {
           if(final[k]=='+' || final[k]=='-' || final[k]=='*' || final[k]=='/')
           {
                getIt(final[k],bet,final[k+1])
           }
-
      }
-
 }
 
 function getIt(opr,parameter,num){
@@ -125,8 +125,10 @@ function getIt(opr,parameter,num){
                  break;
         case '*':parameter*=num
                  break;
-        case '/':parameter=parameter/num;
+        case '/':parameter=parameter/num
                  break;
      }
      bet=parameter;
 }
+
+
